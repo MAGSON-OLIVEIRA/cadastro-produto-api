@@ -81,7 +81,7 @@ public class Produto implements Serializable {
 		this.preco = preco;
 	}
 
-	@Column(name="preco", nullable = false)
+	@Column(name="quantidade", nullable = false)
 	public Integer getQuantidade() {
 		return quantidade;
 	}
@@ -90,7 +90,7 @@ public class Produto implements Serializable {
 		this.quantidade = quantidade;
 	}
 
-	@Column(name="preco", nullable = false)
+	@Column(name="descricao", nullable = false)
 	public String getDescricao() {
 		return descricao;
 	}
@@ -99,7 +99,7 @@ public class Produto implements Serializable {
 		this.descricao = descricao;
 	}
 
-	@Column(name="preco", nullable = false)
+	@Column(name="foto", nullable = false)
 	public String getFoto() {
 		return foto;
 	}
