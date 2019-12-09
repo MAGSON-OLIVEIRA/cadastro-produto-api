@@ -8,7 +8,7 @@ import com.mdo.cadastroproduto.api.entities.Produto;
 @Transactional(readOnly = true)
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 	// transactional ajunda na perfomace  quando for consulta. Nao bloqueia o banco de dado 
-	@Transactional(readOnly = true)
-	Produto findByProduto(String produto);
+	//@Transactional(readOnly = true)
+	//Produto findByProduto(String produto);
 }
 

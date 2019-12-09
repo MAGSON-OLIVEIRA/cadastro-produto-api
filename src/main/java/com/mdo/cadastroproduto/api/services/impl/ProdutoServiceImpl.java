@@ -17,11 +17,11 @@ public class ProdutoServiceImpl  implements EmpresaService {
 	@Autowired
 	ProdutoRepository produtoRepository;
 
-	@Override
-	public Optional<Produto> buscarPorProduto(String produto) {
-		Log.info("buscar uma produto por nome {}", produto );
-		return Optional.ofNullable(produtoRepository.findByProduto(produto));
-	}
+//	@Override
+//	public Optional<Produto> buscarPorProduto(String produto) {
+//		Log.info("buscar uma produto por nome {}", produto );
+//		return Optional.ofNullable(produtoRepository.findByProduto(produto));
+//	}
 
 	@Override
 	public Produto persistir(Produto produto) {

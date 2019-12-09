@@ -1,4 +1,4 @@
-CREATE TABLE `empresa` (
+CREATE TABLE `produto` (
   `id` bigint(20) NOT NULL,
   `categoria` varchar(255) NOT NULL,
   `produto` varchar(255) NOT NULL,
