@@ -1,7 +1,5 @@
 package com.mdo.cadastroproduto.api.services.impl;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +7,7 @@ import com.mdo.cadastroproduto.api.entities.Produto;
 import com.mdo.cadastroproduto.api.repositories.ProdutoRepository;
 import com.mdo.cadastroproduto.api.services.EmpresaService;
 
-import jdk.internal.org.jline.utils.Log;
+//import jdk.internal.org.jline.utils.Log;
 
 @Service
 public class ProdutoServiceImpl  implements EmpresaService {
@@ -25,7 +23,7 @@ public class ProdutoServiceImpl  implements EmpresaService {
 
 	@Override
 	public Produto persistir(Produto produto) {
-		Log.info("salvar empresa na base ", produto.toString());
+		//Log.info("salvar empresa na base ", produto.toString());
 		return this.produtoRepository.save(produto);
 	}
 
