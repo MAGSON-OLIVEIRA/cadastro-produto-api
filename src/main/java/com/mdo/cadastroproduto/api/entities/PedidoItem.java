@@ -1,8 +1,13 @@
 package com.mdo.cadastroproduto.api.entities;
 
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -11,13 +16,43 @@ import javax.persistence.Transient;
 @Table(name = "pedidoitem")
 public class PedidoItem {
 	
-	@EmbeddedId
-	private PedidoItemPK chavePrimaria;
-	
+	private Long id;
+	private Produto produto;
+	private Pedido pedido;
 	private String descProduto;
 	private Integer quantidade;
 	private Double valor;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_produto")
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_pedido")
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+
 	@Transient
 	private Double subtotal;
 	
@@ -26,7 +61,7 @@ public class PedidoItem {
 		return quantidade;
 	}
 	
-	@Column(name="descProduto")
+	@Column(name="desc_produto")
 	public String getDescProduto() {
 		return descProduto;
 	}
@@ -36,17 +71,8 @@ public class PedidoItem {
 		return valor;
 	}
 	
-	
-	public PedidoItemPK getChavePrimaria() {
-		return chavePrimaria;
-	}
-	
 	public Double getSubtotal() {
 		return subtotal;
-	}
-
-	public void setChavePrimaria(PedidoItemPK chavePrimaria) {
-		this.chavePrimaria = chavePrimaria;
 	}
 
 	public void setDescProduto(String descProduto) {

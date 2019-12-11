@@ -8,9 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.hibernate.validator.constraints.NotBlank;
-
 @Entity
 @Table(name="cliente")
 public class Cliente implements Serializable {
@@ -36,7 +33,6 @@ public class Cliente implements Serializable {
 		return id;
 	}
 	
-	@NotBlank(message = "Nome é obrigatorio")
 	@Column(name="nome")
 	public String getNome() {
 		return nome;

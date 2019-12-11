@@ -5,6 +5,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,6 +27,11 @@ public class Produto implements Serializable {
 	private Integer quantidade;
 	private String descricao;
 	private String foto;
+	
+	public Produto(Long id, String produto) {
+		this.id = id;
+		this.produto = produto;
+	}
 	
 	public Produto() {
 		
@@ -59,6 +66,7 @@ public class Produto implements Serializable {
 		return produto;
 	}
 
+	@Enumerated(EnumType.STRING)
 	@Column(name="categoria", nullable = false)
 	public CategoriaEnum getCategoria() {
 		return categoria;
