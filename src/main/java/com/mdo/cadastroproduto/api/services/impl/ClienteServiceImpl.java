@@ -1,6 +1,10 @@
 package com.mdo.cadastroproduto.api.services.impl;
 
+import java.util.List;
 import java.util.Optional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +22,10 @@ public class ClienteServiceImpl  implements ClienteService {
 	
 	@Autowired
 	ClienteRepository clienteRepository;
+	
+	
+	@PersistenceContext
+	private EntityManager manager;
 
 	@Override
 	public Cliente persistir(Cliente cliente) {
@@ -30,5 +38,12 @@ public class ClienteServiceImpl  implements ClienteService {
 		log.info("pesquisar cliente na base ", email);
 		return this.clienteRepository.findByEmail(email);
 	}
+
+	@Override
+	public List<Cliente> listar() {
+		List<Cliente> list = manager.createNativeQuery("SELECT * FROM cliente", Cliente.class).getResultList();
+		return list;
+	}
+	
 
 }
